@@ -1,0 +1,51 @@
+<p>data-binding</p>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>{{courseName}}</span>
+            </td>
+            <td>
+                <strong>{{courseName}}</strong>
+            </td>
+            <td>
+                <strong>{{cityName}}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" value="{{courseName}}">
+            </td>
+            <td>
+                <p [class]="className">This is a sample para</p>
+            </td>
+            <td>
+                <input [type]="inputType">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="showWelcomeMessage()">Show Message</button>
+            </td>
+            <td>
+                <select (change)="onStateChange()">
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>Nagpur</option>
+                    <option>Jaipur</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" [(ngModel)]="courseName">
+            </td>
+            <td>
+                <button (click)="changeCourseName('Java')">Java</button>
+            </td>
+            <td>
+                <button (click)="changeCourseName('.Net')">.Net</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
