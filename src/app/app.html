@@ -1,4 +1,30 @@
-<h1>Hello Dev</h1>
+<div class="d-flex">
 
-<app-variables></app-variables>
-<app-data-binding></app-data-binding>
+    <!-- Sidebar -->
+    <nav class="bg-dark text-white vh-100 p-3" style="width: 200px;">
+        <h4 class="mb-4">My Sidebar</h4>
+
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+                <a routerLink="databinding" class="nav-link text-white">Data Binding</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a routerLink="variables" class="nav-link text-white">Variable</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a routerLink="signal" class="nav-link text-white">Signal</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a routerLink="#" class="nav-link text-white">Reports</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a routerLink="#" class="nav-link text-white">Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content (where components load) -->
+    <div class="flex-grow-1 p-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>
