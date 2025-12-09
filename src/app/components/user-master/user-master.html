@@ -1,0 +1,79 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">User Registration Form</h4>
+                </div>
+                <div class="card-body">
+                    <form #formData="ngForm">
+                        <!-- ID Field -->
+                        <div class="mb-3">
+                            <label for="id" class="form-label">ID:</label>
+                            <input type="number" [(ngModel)]="userObj.id" name="id" class="form-control" id="id"
+                                placeholder="0" disabled>
+                        </div>
+
+                        <!-- Name Field -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            @if (name.touched||name.dirty) {
+                            <div class="text-danger" style="font-size: 10px;">
+                                <!-- {{name.errors|json}} -->
+                                @if(name.errors?.['required']){
+                                <span>This field is a mandatory requirement*</span>
+                                } @else if (name.errors?.['minlength']) {
+                                <span>Mininum 5 character is a requirement*</span>
+                                }
+                            </div>
+                            }
+                            <input type="text" #name="ngModel" [(ngModel)]="userObj.name" name="name" required
+                                minlength="5" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+
+                        <!-- Username Field -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username:</label>
+                            <input type="text" [(ngModel)]="userObj.username" name="username" class="form-control"
+                                id="username" placeholder="Enter your username">
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" [(ngModel)]="userObj.email" name="email" class="form-control" id="email"
+                                placeholder="Enter email address">
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Email:</label>
+                            <input type="password" [(ngModel)]="userObj.password" name="password" class="form-control"
+                                id="password" placeholder="Enter password">
+                        </div>
+
+                        <!-- City Field -->
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City:</label>
+                            <input type="text" [(ngModel)]="userObj.city" name="city" class="form-control" id="city"
+                                placeholder="Enter your city">
+                        </div>
+
+                        <!-- State Field -->
+                        <div class="md-3">
+                            <label for="state" class="form-label">State:</label>
+                            <input type="text" [(ngModel)]="userObj.state" name="state" class="form-control" id="state"
+                                placeholder="Enter your state">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" [disabled]="formData.invalid" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
